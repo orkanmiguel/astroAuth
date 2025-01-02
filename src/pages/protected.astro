@@ -1,8 +1,10 @@
 ---
 import MainLayout from "@/layouts/mainLayout.astro";
 import Login from "./login.astro";
+import { firebase } from "@/firebase/config";
 
-
+const firebaseUser = firebase.auth.currentUser
+console.log("firebase", firebaseUser);
 
 
 ---

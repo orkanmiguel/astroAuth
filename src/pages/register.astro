@@ -77,13 +77,13 @@ import Swal from "sweetalert2";
         icon: "error",
         title: "Credenciales no son correctas",
         text:  error.message,
-      })
+      });
       btnSubmit.removeAttribute('disabled');
 
       return;
     }
 
-    window.location.replace("/protected")//para no volver a la pagina anterior
+    window.location.replace("/protected");//para no volver a la pagina anterior
 
    
   })

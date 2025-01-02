@@ -34,9 +34,7 @@ export const registerUser = defineAction({
         email,
         password
       );
-
       //Actualizar el nombre (displayName);
-
       //verificar el correo electronico
 
       return user;

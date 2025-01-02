@@ -5,6 +5,8 @@ dist/
 
 # dependencies
 node_modules/
+firebase/
+src/pages/protected.astro
 
 # logs
 npm-debug.log*

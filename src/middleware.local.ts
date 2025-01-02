@@ -26,7 +26,7 @@ const checkLocalAtuh = (authHeaders: string, next: MiddlewareNext) => {
   if (authHeaders) {
     const authValue = authHeaders.split(" ").at(-1) ?? "";
     const decodeValue = atob(authValue).split(":");
-
+    console.log("decode", decodeValue);
     const [user, password] = decodeValue;
 
     if (user === "admin" && password === "admin") {

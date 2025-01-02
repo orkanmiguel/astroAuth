@@ -44,16 +44,16 @@ const rememberME = !!email; // "!!" si existe : "!" si no existe
             </div>
             <div>
               <button type="submit" id="btn-submit" class="disabled:bg-gray-300 w-full flex justify-center bg-green-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
-                Ingresar
+                Sign in
               </button>
             </div>
-            </div>
+          </form>
             <div class="pt-5 text-center text-gray-400 text-xs">
               <span>
                 Copyright © 2021-{new Date().getFullYear()}
                 <a href="https://codepen.io/uidesignhub" rel="" target="_blank" title="Ajimon" class="text-green hover:text-green-500 ">AJI</a></span>
             </div>
-          </form>
+          </div>
       </div>
 </AuthLayout>
 
@@ -62,7 +62,7 @@ import {actions} from 'astro:actions';
 import Swal from "sweetalert2";
 
   const form = document.querySelector('form') as HTMLFormElement;
-  const btnSubmit = document.querySelector('#btn-submit') as HTMLFormElement;
+  const btnSubmit = document.querySelector('#btn-submit') as HTMLButtonElement;
 
   form.addEventListener('submit',async(e) => {
     e.preventDefault();
@@ -74,14 +74,15 @@ import Swal from "sweetalert2";
 
     if(error){
       Swal.fire({
-        icon: "error",
-        title: "Credenciales no son correctas",
-        text:  error.message,
-      });
+        icon:"error",
+        title: 'Credenciales no son correctas',
+        text: error.message,
+      })
+      console.log(error.message)
       btnSubmit.removeAttribute('disabled');
-
       return;
     }
+   
 
     window.location.replace("/protected");//para no volver a la pagina anterior
 

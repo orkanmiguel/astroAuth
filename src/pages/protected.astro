@@ -18,7 +18,7 @@ photoURL
 } = firebaseUser
 
 const name = displayName ?? 'no display Name';
-/* console.log("firebase", firebaseUser); */
+console.log("photourl", photoURL);
 
 
 ---
@@ -31,9 +31,10 @@ const name = displayName ?? 'no display Name';
 	<div class="card w-96 rounded-xl mx-auto bg-white  shadow-xl hover:shadow">
 		{
 			photoURL ? (
-			<img class="w-32 mx-auto rounded-full -mt-20 border-8 border-white" src={photoURL} alt={`Avatar de ${name}`}>
+			<img class="w-32 mx-auto rounded-full -mt-20 border-8 border-white" src={`${photoURL}`} alt={`Avatar de ${name}`}>
 			): (
 			<div class="w-32 h-32 mx-auto rounded-full -mt-20 border-8 border-white bg-gray-300 flex justify-center items-center">
+				
   <span class="text-white text-3xl font-extrabold">
     {name!.substring(0, 2)}
   </span>

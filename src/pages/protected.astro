@@ -9,6 +9,7 @@ if(firebaseUser === null){
 	return Astro.redirect('/login')
 }
 
+await firebase.auth.currentUser?.reload();
 const {displayName,
 email,
 emailVerified,

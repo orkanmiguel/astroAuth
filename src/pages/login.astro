@@ -43,7 +43,7 @@ const rememberME = !!email; // "!!" si existe : "!" si no existe
               </button>
               <div class="flex flex-1 w-full my-2">
                 <div class="w-full border-t-2 border-gray-500">
-                  <button id="btn-google" type="button" class="disabled:bg-gray-300 w-full flex justify-center bg-red-400  hover:bg-green-500 text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
+                  <button id="btn-google" type="button" class="disabled:bg-gray-300 w-full flex justify-center bg-red-400   text-gray-100 p-3  rounded-full tracking-wide font-semibold  shadow-lg cursor-pointer transition ease-in duration-500">
                     Ingresar con google
                   </button>
                 </div>
@@ -101,7 +101,7 @@ import Swal from "sweetalert2";
     try{
       //Paso 1 : obtener las credenciales del lado del cliente
       const credentials = await signInWithPopup(firebase.auth, provider);
-      console.log(credentials)
+     /*  console.log(credentials) */
 
       //Paso 2: Verificar las credenciales en el backend
       const {error} = await actions.logintWithGoogle(credentials);

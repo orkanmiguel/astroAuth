@@ -3,7 +3,17 @@ import MainLayout from "@/layouts/mainLayout.astro";
 import Login from "./login.astro";
 import { firebase } from "@/firebase/config";
 
-const firebaseUser = firebase.auth.currentUser
+
+const {user, isLoggedIn} = Astro.locals;
+
+if(!isLoggedIn || !user){
+	return Astro.redirect('/login');
+}
+
+const {avatar, email, emailVerified, name} = user
+
+
+/* const firebaseUser = firebase.auth.currentUser
 
 if(firebaseUser === null){
 	return Astro.redirect('/login')
@@ -18,7 +28,7 @@ photoURL
 } = firebaseUser
 
 const name = displayName ?? 'no display Name';
-console.log("photourl", photoURL);
+console.log("photourl", photoURL); */
 
 
 ---
@@ -30,8 +40,8 @@ console.log("photourl", photoURL);
 <div class="bg-gray-200 rounded-xl font-sans h-[500px] w-full flex flex-row justify-center items-center">
 	<div class="card w-96 rounded-xl mx-auto bg-white  shadow-xl hover:shadow">
 		{
-			photoURL ? (
-			<img class="w-32 mx-auto rounded-full -mt-20 border-8 border-white" src={`${photoURL}`} alt={`Avatar de ${name}`}>
+			avatar ? (
+			<img class="w-32 mx-auto rounded-full -mt-20 border-8 border-white" src={`${avatar}`} alt={`Avatar de ${name}`}>
 			): (
 			<div class="w-32 h-32 mx-auto rounded-full -mt-20 border-8 border-white bg-gray-300 flex justify-center items-center">
 				

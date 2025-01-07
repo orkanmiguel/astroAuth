@@ -16,13 +16,13 @@ export const onRequest = defineMiddleware(async ({ url, request }, next) => {
   console.log(authHeaders);
 
   if (privateRoutes.includes(url.pathname)) {
-    return checkLocalAtuh(authHeaders, next);
+    return checkLocalAuth(authHeaders, next);
   }
 
   return next();
 });
 
-const checkLocalAtuh = (authHeaders: string, next: MiddlewareNext) => {
+const checkLocalAuth = (authHeaders: string, next: MiddlewareNext) => {
   if (authHeaders) {
     const authValue = authHeaders.split(" ").at(-1) ?? "";
     const decodeValue = atob(authValue).split(":");

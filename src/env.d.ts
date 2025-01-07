@@ -1,4 +1,13 @@
 /// <reference path="../.astro/types.d.ts" />
+/// <reference types="astro/client" />
+declare namespace App {
+  interface Locals {
+    isLoggedIn: boolean;
+    user: User | null;
+  }
+}
+
+/* /// <reference path="../.astro/types.d.ts" />
 
 import type { boolean } from "astro:schema";
 
@@ -15,3 +24,4 @@ declare namespace App {
     user: User | null;
   }
 }
+ */
